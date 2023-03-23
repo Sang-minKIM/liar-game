@@ -42,8 +42,8 @@ const Category = styled.div<{ name: string; selected: string }>`
 `;
 
 const CategoryImg = styled.img`
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     margin-left: 0.6rem;
 `;
 

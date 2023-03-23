@@ -12,13 +12,13 @@ const CountForm = styled.div`
     height: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 `;
 
 const Stepper = styled.div`
     width: 70%;
-    height: 4rem;
+    height: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,8 +47,8 @@ const PlusBtn = styled.button`
 const MinusBtn = styled(PlusBtn)``;
 
 const Count = styled.span`
-    width: 13vw;
-    height: 13vw;
+    width: 3rem;
+    height: 3rem;
     border: none;
     display: flex;
     justify-content: center;

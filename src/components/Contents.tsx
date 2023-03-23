@@ -27,7 +27,7 @@ export const Message = styled.h2`
 `;
 
 export const Submit = styled.button`
-    width: 8rem;
+    width: 12rem;
     height: 3rem;
     border-radius: 0.75rem;
     border: none;
