@@ -7,7 +7,7 @@ export const Container = styled(SmallContainer)`
 
 export const ContentsBox = styled.div`
     width: 87.4%;
-    height: 50%;
+    height: 65%;
     border-radius: 1rem;
     border: 1px solid ${(props) => props.theme.gray};
     display: flex;
@@ -27,8 +27,8 @@ export const Message = styled.h2`
 `;
 
 export const Submit = styled.button`
-    width: 40vw;
-    height: 5vh;
+    width: 8rem;
+    height: 3rem;
     border-radius: 0.75rem;
     border: none;
     background-color: ${(props) => props.theme.blue};
