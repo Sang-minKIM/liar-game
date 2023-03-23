@@ -2,6 +2,7 @@ import React from "react";
 import { Container, ContentsBox, DogImg, Message, Submit } from "../components/Contents";
 import dog from "../assets/Dog.png";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const GameContents = styled(ContentsBox)`
     height: 400px;
@@ -25,6 +26,7 @@ const Answer = styled.input`
 `;
 
 function Game() {
+    const navigate = useNavigate();
     return (
         <Container>
             <GameContents>
@@ -33,7 +35,7 @@ function Game() {
                 <Message>지목된 사람은</Message>
                 <Message>제시어를 적어줘</Message>
                 <Answer placeholder="제시어는..."></Answer>
-                <Submit>확인</Submit>
+                <Submit onClick={() => navigate("/finish")}>확인</Submit>
             </GameContents>
         </Container>
     );
