@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 import dog from "../assets/Dog.png";
+import { peopleCountAtom } from "../atom";
 import { Container, ContentsBox, DogImg, Message, Submit } from "../components/Contents";
 
 const CountForm = styled.div`
@@ -43,17 +46,22 @@ const PlusBtn = styled.button`
 
 const MinusBtn = styled(PlusBtn)``;
 
-const Count = styled.input`
+const Count = styled.span`
     width: 13vw;
     height: 13vw;
     border: none;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: ${(props) => props.theme.fontSize.large};
     color: ${(props) => props.theme.blue};
 `;
 
 function People() {
-    const count = 3;
+    const [count, setCount] = useRecoilState(peopleCountAtom);
+    const minus = () => setCount((prev) => (prev === 3 ? 3 : prev - 1));
+    const plus = () => setCount((prev) => (prev === 10 ? 10 : prev + 1));
+    const navigate = useNavigate();
     return (
         <Container>
             <ContentsBox>
@@ -61,11 +69,11 @@ function People() {
                 <Message>몇 명이랑 할거야?</Message>
                 <CountForm>
                     <Stepper>
-                        <PlusBtn>+</PlusBtn>
-                        <Count type="number" value={count} />
-                        <MinusBtn>-</MinusBtn>
+                        <MinusBtn onClick={minus}>-</MinusBtn>
+                        <Count>{count}</Count>
+                        <PlusBtn onClick={plus}>+</PlusBtn>
                     </Stepper>
-                    <Submit>확인</Submit>
+                    <Submit onClick={() => navigate("/topic")}>확인</Submit>
                 </CountForm>
             </ContentsBox>
         </Container>
