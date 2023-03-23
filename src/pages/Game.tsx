@@ -4,14 +4,14 @@ import dog from "../assets/Dog.png";
 import styled from "styled-components";
 
 const GameContents = styled(ContentsBox)`
-    height: 45%;
+    height: 400px;
     padding: 1rem;
 `;
 
 const Answer = styled.input`
     width: 88%;
-    height: 18%;
-    margin-top: 2rem;
+    height: 15%;
+    margin: 1rem 0;
     border: 1px solid ${(props) => props.theme.lightBlue};
     border-radius: 16px;
     font-size: ${(props) => props.theme.fontSize.large};
@@ -33,7 +33,7 @@ function Game() {
                 <Message>지목된 사람은</Message>
                 <Message>제시어를 적어줘</Message>
                 <Answer placeholder="제시어는..."></Answer>
-                {/* <Submit>확인</Submit> */}
+                <Submit>확인</Submit>
             </GameContents>
         </Container>
     );

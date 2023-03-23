@@ -1,4 +1,4 @@
-export const animal = [
+export const animalList = [
     "개",
     "곰",
     "가젤",
@@ -109,7 +109,7 @@ export const animal = [
     "타조",
     "펭귄",
 ];
-export const food = [
+export const foodList = [
     "짜장면",
     "피자",
     "삼계탕",
@@ -136,7 +136,7 @@ export const food = [
     "아이스크림",
     "샌드위치",
 ];
-export const landmark = [
+export const landmarkList = [
     "자유의 여신상",
     "빅벤",
     "에펠탑",

@@ -9,3 +9,13 @@ export const topicAtom = atom({
     key: "topic",
     default: "",
 });
+
+export const answerAtom = atom({
+    key: "answer",
+    default: "",
+});
+
+export const fakeAnswerAtom = atom({
+    key: "fake",
+    default: "",
+});

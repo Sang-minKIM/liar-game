@@ -1,6 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { answerAtom, fakeAnswerAtom, peopleCountAtom } from "../atom";
 import { Container } from "../components/Contents";
 
 const RoleContainer = styled(Container)`
@@ -81,11 +84,20 @@ const cardVariants = {
 };
 
 function Role() {
+    const answer = useRecoilValue(answerAtom);
+    const fake = useRecoilValue(fakeAnswerAtom);
     const [visible, setVisible] = useState(0);
     const [check, setCheck] = useState(false);
-    const next = () => setVisible((prev) => (prev === 9 ? 9 : prev + 1));
-    const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    console.log(check);
+    const players = useRecoilValue(peopleCountAtom);
+    const cards = Array.from({ length: players }, (_, i) => i);
+    const navigate = useNavigate();
+    const next = () => {
+        setVisible((prev) => (prev === players - 1 ? players - 1 : prev + 1));
+        if (visible === players - 1) {
+            navigate("/game");
+        }
+    };
+    const liar = Math.floor(Math.random() * players);
 
     return (
         <RoleContainer>
@@ -96,7 +108,8 @@ function Role() {
                             <Card onClick={() => setCheck((prev) => !prev)} variants={cardVariants} initial="invisible" animate="visible" exit="exit" key={index}>
                                 {check ? (
                                     <>
-                                        <Answer>"강아지"</Answer>
+                                        {index === liar ? <Answer>{fake}</Answer> : <Answer>{answer}</Answer>}
+
                                         <CardText>터치해서 가리기</CardText>
                                     </>
                                 ) : (
