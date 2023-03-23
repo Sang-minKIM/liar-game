@@ -65,11 +65,16 @@ body {
   &::-webkit-scrollbar {
     display: none;
   }
+  min-width: 320px;
 }
 a {
   text-decoration:none;
   color: inherit;
   }
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
 `;
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
