@@ -17,6 +17,7 @@ const Cards = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 15%;
 `;
 
 const Card = styled(motion.div)`
@@ -47,7 +48,7 @@ const ControlBar = styled.div`
     justify-content: space-between;
     padding: 0 7%;
     position: absolute;
-    bottom: 10%;
+    bottom: 15%;
 `;
 
 const Dots = styled.div``;

@@ -17,7 +17,7 @@ const CountForm = styled.div`
 `;
 
 const Stepper = styled.div`
-    width: 40vw;
+    width: 70%;
     height: 6vh;
     display: flex;
     justify-content: space-between;
@@ -26,8 +26,8 @@ const Stepper = styled.div`
 
 const PlusBtn = styled.button`
     text-align: center;
-    width: 12vw;
-    height: 12vw;
+    width: 5vh;
+    height: 5vh;
     border-radius: 0.75rem;
     border: 1px solid ${(props) => props.theme.blue};
     box-shadow: 0px 0px 4px 0px ${(props) => props.theme.darkGray};

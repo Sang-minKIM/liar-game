@@ -28,7 +28,7 @@ export const Message = styled.h2`
 
 export const Submit = styled.button`
     width: 40vw;
-    height: 6vh;
+    height: 5vh;
     border-radius: 0.75rem;
     border: none;
     background-color: ${(props) => props.theme.blue};
