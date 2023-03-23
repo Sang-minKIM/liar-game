@@ -26,8 +26,8 @@ const Stepper = styled.div`
 
 const PlusBtn = styled.button`
     text-align: center;
-    width: 5vh;
-    height: 5vh;
+    width: 9vw;
+    height: 9vw;
     border-radius: 0.75rem;
     border: 1px solid ${(props) => props.theme.blue};
     box-shadow: 0px 0px 4px 0px ${(props) => props.theme.darkGray};
