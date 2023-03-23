@@ -7,7 +7,7 @@ export const Container = styled(SmallContainer)`
 
 export const ContentsBox = styled.div`
     width: 87.4%;
-    height: 65%;
+    height: 70%;
     border-radius: 1rem;
     border: 1px solid ${(props) => props.theme.gray};
     display: flex;
@@ -18,8 +18,8 @@ export const ContentsBox = styled.div`
 `;
 
 export const DogImg = styled.img`
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 4rem;
+    height: 4rem;
 `;
 
 export const Message = styled.h2`
