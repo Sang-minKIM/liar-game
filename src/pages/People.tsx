@@ -18,7 +18,7 @@ const CountForm = styled.div`
 
 const Stepper = styled.div`
     width: 70%;
-    height: 100%;
+    height: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
