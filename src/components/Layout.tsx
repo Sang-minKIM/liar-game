@@ -29,7 +29,7 @@ export const SmallContainer = styled.div`
 const Title = styled.h1`
     width: 100%;
     font-size: ${(props) => props.theme.fontSize.xLarge};
-    font-size: ${(props) => props.theme.fontSize.xLarge};
+    height: ${(props) => props.theme.fontSize.xLarge};
     color: ${(props) => props.theme.black};
     display: flex;
     justify-content: center;
