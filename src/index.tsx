@@ -59,7 +59,7 @@ table {
   box-sizing: border-box;
 }
 body {
-  font-family:'Source Sans Pro', sans-serif ;
+  font-family: 'NanumPen' ;
   line-height: 1.2;
   margin: 0 auto;
   &::-webkit-scrollbar {
