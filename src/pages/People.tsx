@@ -15,7 +15,9 @@ const ContentsBox = styled.div`
 
 const DogImg = styled.img``;
 
-const Message = styled.h2``;
+const Message = styled.h2`
+    font-size: ${(props) => props.theme.fontSize.large};
+`;
 
 const CountForm = styled.form``;
 

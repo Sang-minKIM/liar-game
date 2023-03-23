@@ -5,7 +5,7 @@ const LargeContainer = styled.div`
         display: none;
     }
     background-color: ${(props) => props.theme.blue};
-    font-size: 3.125rem;
+    font-size: ${(props) => props.theme.fontSize.xLarge};
     width: 100vw;
     height: 100vh;
     color: ${(props) => props.theme.white};
@@ -28,8 +28,8 @@ export const SmallContainer = styled.div`
 
 const Title = styled.h1`
     width: 100%;
-    height: 3.125rem;
-    font-size: 3.125rem;
+    font-size: ${(props) => props.theme.fontSize.xLarge};
+    font-size: ${(props) => props.theme.fontSize.xLarge};
     color: ${(props) => props.theme.black};
     display: flex;
     justify-content: center;

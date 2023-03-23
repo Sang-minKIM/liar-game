@@ -4,6 +4,11 @@ const deviceSizes = {
     laptop: "1024px",
 };
 
+const fontSize = {
+    xLarge: "3.125rem",
+    large: "2.25rem",
+};
+
 export const theme = {
     black: "#1D1D20",
     blue: "#32ADE6",
@@ -12,4 +17,5 @@ export const theme = {
     darkGray: "#AEAEB2",
     white: "#FAFAFA",
     deviceSizes,
+    fontSize,
 };

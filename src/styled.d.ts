@@ -5,6 +5,11 @@ interface IDevice {
     tablet: string;
     laptop: string;
 }
+
+interface IFont {
+    xLarge: string;
+    large: string;
+}
 declare module "styled-components" {
     export interface DefaultTheme {
         black: string;
@@ -14,5 +19,6 @@ declare module "styled-components" {
         darkGray: string;
         white: string;
         deviceSizes: IDevice;
+        fontSize: IFont;
     }
 }
