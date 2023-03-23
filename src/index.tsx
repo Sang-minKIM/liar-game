@@ -75,6 +75,10 @@ input {
   font-family: inherit;
   font-size: inherit;
 }
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
 `;
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);

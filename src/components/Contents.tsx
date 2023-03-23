@@ -26,12 +26,28 @@ export const Message = styled.h2`
     font-size: ${(props) => props.theme.fontSize.large};
 `;
 
+export const Submit = styled.button`
+    width: 40vw;
+    height: 6vh;
+    border-radius: 0.75rem;
+    border: none;
+    background-color: ${(props) => props.theme.blue};
+    font-size: ${(props) => props.theme.fontSize.large};
+    color: ${(props) => props.theme.white};
+    box-shadow: 0px 0px 3px 0px ${(props) => props.theme.darkGray};
+    &:active {
+        opacity: 0.8;
+        box-shadow: none;
+    }
+`;
+
 function Contents() {
     return (
         <Container>
             <ContentsBox>
                 <DogImg src="" />
-                <Message>몇 명이랑 할거야?</Message>
+                <Message></Message>
+                <Submit></Submit>
             </ContentsBox>
         </Container>
     );
