@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { SmallContainer } from "../components/Layout";
+import dog from "../assets/Dog.png";
 
 const Container = styled(SmallContainer)`
     align-items: center;
@@ -35,7 +36,7 @@ function People() {
     return (
         <Container>
             <ContentsBox>
-                <DogImg src="" />
+                <DogImg src={dog} />
                 <Message>몇 명이랑 할거야?</Message>
                 <CountForm>
                     <Stepper>
