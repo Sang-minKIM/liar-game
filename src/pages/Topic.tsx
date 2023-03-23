@@ -80,15 +80,14 @@ function Topic() {
             words = landmarkList;
         }
         setAnswer(words[Math.floor(Math.random() * words.length)]);
+        words.splice(words.indexOf(answer), 1);
         setFake(words[Math.floor(Math.random() * words.length)]);
-        while (fake === answer) {
-            setFake(words[Math.floor(Math.random() * words.length)]);
-        }
+        navigate("/role");
+        return;
     };
 
     const onSubmit = () => {
         setLiar();
-        navigate("/role");
     };
 
     return (
