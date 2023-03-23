@@ -14,10 +14,11 @@ const LargeContainer = styled.div`
     align-items: center;
 `;
 
-const SmallContainer = styled.div`
+export const SmallContainer = styled.div`
     @media (min-width: ${(props) => props.theme.deviceSizes.mobile}) {
         display: none;
     }
+    position: fixed;
     width: 100vw;
     height: 100vh;
     display: flex;
