@@ -42,7 +42,7 @@ const Answer = styled.span`
 `;
 
 const ControlBar = styled.div`
-    height: fit-content;
+    height: 60px;
     width: 100%;
     display: flex;
     justify-content: space-between;
