@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
@@ -89,6 +89,7 @@ function Role() {
     const fake = useRecoilValue(fakeAnswerAtom);
     const [visible, setVisible] = useState(0);
     const [check, setCheck] = useState(false);
+    const [liar, setLiar] = useState(0);
     const players = useRecoilValue(peopleCountAtom);
     const cards = Array.from({ length: players }, (_, i) => i);
     const navigate = useNavigate();
@@ -98,7 +99,9 @@ function Role() {
             navigate("/game");
         }
     };
-    const liar = Math.floor(Math.random() * players);
+    // const liar = Math.floor(Math.random() * players);
+    // check state가 변경되면서 리렌더링이 일어나, liar가 다시 할당되는 버그가 발생했다.
+    useEffect(() => setLiar(Math.floor(Math.random() * players)), []);
 
     return (
         <RoleContainer>
@@ -109,7 +112,7 @@ function Role() {
                             <Card onClick={() => setCheck((prev) => !prev)} variants={cardVariants} initial="invisible" animate="visible" exit="exit" key={index}>
                                 {check ? (
                                     <>
-                                        {index === liar ? <Answer>{fake}</Answer> : <Answer>{answer}</Answer>}
+                                        {index === liar ? <Answer>{liar + fake}</Answer> : <Answer>{liar + answer}</Answer>}
 
                                         <CardText>터치해서 가리기</CardText>
                                     </>

@@ -53,15 +53,6 @@ const CategoryName = styled.h2`
     font-size: ${(props) => props.theme.fontSize.large};
 `;
 
-const liVariants = {
-    active: {
-        backgroundColor: "rgba(0, 0, 0, 0)",
-    },
-    none: {
-        backgroundColor: "rgba(0, 0, 0, 1)",
-    },
-};
-
 function Topic() {
     const [topic, setTopic] = useRecoilState(topicAtom);
     const [answer, setAnswer] = useRecoilState(answerAtom);
@@ -73,11 +64,11 @@ function Topic() {
     };
 
     const setLiar = () => {
-        let words = animalList;
+        let words = [...animalList];
         if (topic === "food") {
-            words = foodList;
+            words = [...foodList];
         } else if (topic === "landmark") {
-            words = landmarkList;
+            words = [...landmarkList];
         }
         setAnswer(words[Math.floor(Math.random() * words.length)]);
         words.splice(words.indexOf(answer), 1);
