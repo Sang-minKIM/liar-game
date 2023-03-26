@@ -56,23 +56,34 @@ const Dots = styled.div``;
 const Dot = styled.span``;
 
 const NextBtn = styled.button`
-    text-align: center;
-    width: 12vw;
-    height: 12vw;
+    position: relative;
+
+    width: 3rem;
+    padding-bottom: 3rem;
+
     border-radius: 0.75rem;
     border: 1px solid ${(props) => props.theme.blue};
     box-shadow: 0px 0px 4px 0px ${(props) => props.theme.darkGray};
     background-color: ${(props) => props.theme.blue};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: ${(props) => props.theme.fontSize.large};
-    color: ${(props) => props.theme.white};
 
     &:active {
         opacity: 0.8;
         box-shadow: none;
     }
+`;
+
+const NextBtnContent = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    font-size: ${(props) => props.theme.fontSize.large};
+    color: ${(props) => props.theme.white};
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const cardVariants = {
@@ -129,7 +140,9 @@ function Role() {
                 </Cards>
                 <ControlBar>
                     <Dots>{visible + 1}</Dots>
-                    <NextBtn onClick={next}>&gt;</NextBtn>
+                    <NextBtn onClick={next}>
+                        <NextBtnContent>&gt;</NextBtnContent>
+                    </NextBtn>
                 </ControlBar>
             </AnimatePresence>
         </RoleContainer>

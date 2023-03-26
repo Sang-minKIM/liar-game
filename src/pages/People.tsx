@@ -25,18 +25,14 @@ const Stepper = styled.div`
 `;
 
 const PlusBtn = styled.button`
+    position: relative;
     text-align: center;
     width: 3rem;
-    height: 3rem;
+    padding-bottom: 3rem;
     border-radius: 0.75rem;
     border: 1px solid ${(props) => props.theme.blue};
     box-shadow: 0px 0px 4px 0px ${(props) => props.theme.darkGray};
     background-color: ${(props) => props.theme.blue};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: ${(props) => props.theme.fontSize.xLarge};
-    color: ${(props) => props.theme.white};
 
     &:active {
         opacity: 0.8;
@@ -46,13 +42,27 @@ const PlusBtn = styled.button`
 
 const MinusBtn = styled(PlusBtn)``;
 
-const Count = styled.div`
-    width: 3rem;
-    height: 3rem;
-    border: none;
+const BtnContents = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: ${(props) => props.theme.fontSize.xLarge};
+    color: ${(props) => props.theme.white};
+`;
+
+const Count = styled.div`
+    position: relative;
+    width: 3rem;
+    padding-bottom: 3rem;
+    border: none;
+`;
+
+const CountContent = styled(BtnContents)`
     font-size: ${(props) => props.theme.fontSize.large};
     color: ${(props) => props.theme.blue};
 `;
@@ -71,9 +81,15 @@ function People() {
                 <Message>몇 명이랑 할거야?</Message>
                 <CountForm>
                     <Stepper>
-                        <MinusBtn onClick={minus}>-</MinusBtn>
-                        <Count>{count}</Count>
-                        <PlusBtn onClick={plus}>+</PlusBtn>
+                        <MinusBtn onClick={minus}>
+                            <BtnContents>-</BtnContents>
+                        </MinusBtn>
+                        <Count>
+                            <CountContent>{count}</CountContent>
+                        </Count>
+                        <PlusBtn onClick={plus}>
+                            <BtnContents>+</BtnContents>
+                        </PlusBtn>
                     </Stepper>
                     <Submit onClick={() => navigate("/topic")}>확인</Submit>
                 </CountForm>
