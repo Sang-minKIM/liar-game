@@ -57,8 +57,8 @@ const Dot = styled.span``;
 
 const NextBtn = styled.button`
     text-align: center;
-    width: 12vw;
-    height: 12vw;
+    width: 45px;
+    height: 45px;
     border-radius: 0.75rem;
     border: 1px solid ${(props) => props.theme.blue};
     box-shadow: 0px 0px 4px 0px ${(props) => props.theme.darkGray};
