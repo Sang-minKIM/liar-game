@@ -130,7 +130,7 @@ function Role() {
                 </Cards>
                 <ControlBar>
                     <Dots>{visible + 1}</Dots>
-                    <NextBtn onClick={next}>&gt;</NextBtn>
+                    <NextBtn onClick={next}></NextBtn>
                 </ControlBar>
             </AnimatePresence>
         </RoleContainer>
