@@ -51,7 +51,11 @@ const ControlBar = styled.div`
     bottom: 15%;
 `;
 
-const Dots = styled.div``;
+const Dots = styled.div`
+    font-size: ${(props) => props.theme.fontSize.large};
+    color: ${(props) => props.theme.blue};
+    padding-left: 10%;
+`;
 
 const Dot = styled.span``;
 
