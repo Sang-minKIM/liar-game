@@ -21,6 +21,9 @@ export const SmallContainer = styled.div`
     position: fixed;
     width: 100vw;
     height: 100vh;
+    @supports (-webkit-touch-callout: none) {
+        height: -webkit-fill-available;
+    }
     display: flex;
     justify-content: center;
     padding-top: 10%;
