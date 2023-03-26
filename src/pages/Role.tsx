@@ -57,8 +57,9 @@ const Dot = styled.span``;
 
 const NextBtn = styled.button`
     text-align: center;
-    width: 45px;
-    height: 45px;
+    font-size: ${(props) => props.theme.fontSize.large};
+    width: 1.5em;
+    height: 1.5em;
     border-radius: 0.75rem;
     border: 1px solid ${(props) => props.theme.blue};
     box-shadow: 0px 0px 4px 0px ${(props) => props.theme.darkGray};
@@ -66,7 +67,7 @@ const NextBtn = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: ${(props) => props.theme.fontSize.large};
+
     color: ${(props) => props.theme.white};
 
     &:active {
