@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 import dog from "../assets/Dog.png";
-import { peopleCountAtom } from "../atom";
+import { peopleCountAtom, topicAtom } from "../atom";
 import { Container, ContentsBox, DogImg, Message, Submit } from "../components/Contents";
 
 const CountForm = styled.div`
@@ -59,9 +59,11 @@ const Count = styled.div`
 
 function People() {
     const [count, setCount] = useRecoilState(peopleCountAtom);
+    const setTopic = useSetRecoilState(topicAtom);
     const minus = () => setCount((prev) => (prev === 3 ? 3 : prev - 1));
     const plus = () => setCount((prev) => (prev === 10 ? 10 : prev + 1));
     const navigate = useNavigate();
+    useEffect(() => setTopic(""), []);
     return (
         <Container>
             <ContentsBox>

@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { animalList, foodList, landmarkList } from "../data/topics";
 
 const Contents = styled(ContentsBox)`
-    height: 78%;
+    height: 80%;
     padding: 10% 0px;
     justify-content: space-between;
 `;
@@ -73,7 +73,10 @@ function Topic() {
         setAnswer(words[Math.floor(Math.random() * words.length)]);
         words.splice(words.indexOf(answer), 1);
         setFake(words[Math.floor(Math.random() * words.length)]);
-        navigate("/role");
+        if (topic !== "") {
+            navigate("/role");
+        }
+
         return;
     };
 
