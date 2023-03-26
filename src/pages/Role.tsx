@@ -105,6 +105,7 @@ function Role() {
     const cards = Array.from({ length: players }, (_, i) => i);
     const navigate = useNavigate();
     const next = () => {
+        setCheck(false);
         setVisible((prev) => (prev === players - 1 ? players - 1 : prev + 1));
         if (visible === players - 1) {
             navigate("/game");
