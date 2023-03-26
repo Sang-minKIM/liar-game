@@ -27,7 +27,7 @@ const Stepper = styled.div`
 const PlusBtn = styled.button`
     text-align: center;
     width: 3rem;
-    height: 3rem;
+    padding-bottom: 3rem;
     border-radius: 0.75rem;
     border: 1px solid ${(props) => props.theme.blue};
     box-shadow: 0px 0px 4px 0px ${(props) => props.theme.darkGray};
@@ -48,7 +48,7 @@ const MinusBtn = styled(PlusBtn)``;
 
 const Count = styled.div`
     width: 3rem;
-    height: 3rem;
+    padding-bottom: 3rem;
     border: none;
     display: flex;
     justify-content: center;
