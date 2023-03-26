@@ -112,7 +112,7 @@ function Role() {
                             <Card onClick={() => setCheck((prev) => !prev)} variants={cardVariants} initial="invisible" animate="visible" exit="exit" key={index}>
                                 {check ? (
                                     <>
-                                        {index === liar ? <Answer>{liar + fake}</Answer> : <Answer>{liar + answer}</Answer>}
+                                        {index === liar ? <Answer>{fake}</Answer> : <Answer>{answer}</Answer>}
 
                                         <CardText>터치해서 가리기</CardText>
                                     </>
