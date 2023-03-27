@@ -12,12 +12,14 @@ const RoleContainer = styled(Container)`
 `;
 
 const Cards = styled.div`
-    width: 100vw;
+    width: 300vw;
     height: 39vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 15%;
+    overflow-x: hidden;
+    gap: 90vw;
 `;
 
 const Card = styled(motion.div)`
@@ -29,7 +31,21 @@ const Card = styled(motion.div)`
     justify-content: center;
     align-items: center;
     border-radius: 24px;
+    position: absolute;
 `;
+
+// const HiddenCard = styled.div`
+//     width: 70vw;
+//     height: calc(39vh * 0.9);
+//     background-color: ${(props) => props.theme.lightBlue};
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     border-radius: 24px;
+
+//     z-index: 1;
+// `;
 
 const CardText = styled.span`
     font-size: ${(props) => props.theme.fontSize.large};
@@ -55,6 +71,7 @@ const Dots = styled.div`
     font-size: ${(props) => props.theme.fontSize.large};
     color: ${(props) => props.theme.blue};
     padding-left: 10%;
+    width: 2rem;
 `;
 
 const Dot = styled.span``;
@@ -93,10 +110,11 @@ const NextBtnContent = styled.div`
 const cardVariants = {
     invisible: {
         scale: 0.9,
-        x: 400,
+        x: window.innerWidth + 20,
+        backgroundColor: "rgb(128, 206, 240)",
     },
-    visible: { scale: 1, x: 0, transition: { duration: 0.5 } },
-    exit: { scale: 0.9, x: -400, transition: { duration: 0.5 } },
+    visible: { scale: 1, x: 0, transition: { duration: 0.5 }, backgroundColor: "rgb(50, 173, 230)" },
+    exit: { scale: 0.9, x: -window.innerWidth - 20, transition: { duration: 0.5 }, backgroundColor: "rgb(128, 206, 240)" },
 };
 
 function Role() {
@@ -106,7 +124,7 @@ function Role() {
     const [check, setCheck] = useState(false);
     const [liar, setLiar] = useState(0);
     const players = useRecoilValue(peopleCountAtom);
-    const cards = Array.from({ length: players }, (_, i) => i);
+    // const cards = Array.from({ length: players }, (_, i) => i);
     const navigate = useNavigate();
     const next = () => {
         setCheck(false);
@@ -121,35 +139,31 @@ function Role() {
 
     return (
         <RoleContainer>
-            <AnimatePresence>
-                <Cards>
-                    {cards.map((value, index) =>
-                        index === visible ? (
-                            <Card onClick={() => setCheck((prev) => !prev)} variants={cardVariants} initial="invisible" animate="visible" exit="exit" key={index}>
-                                {check ? (
-                                    <>
-                                        {index === liar ? <Answer>{fake}</Answer> : <Answer>{answer}</Answer>}
+            <Cards>
+                <AnimatePresence initial={false}>
+                    <Card onClick={() => setCheck((prev) => !prev)} variants={cardVariants} initial="invisible" animate="visible" exit="exit" key={visible}>
+                        {check ? (
+                            <>
+                                {visible === liar ? <Answer>{fake}</Answer> : <Answer>{answer}</Answer>}
 
-                                        <CardText>터치해서 가리기</CardText>
-                                    </>
-                                ) : (
-                                    <>
-                                        <CardText>눌러서</CardText>
-                                        <CardText>제시어</CardText>
-                                        <CardText>확인하기</CardText>
-                                    </>
-                                )}
-                            </Card>
-                        ) : null
-                    )}
-                </Cards>
-                <ControlBar>
-                    <Dots>{visible + 1}</Dots>
-                    <NextBtn onClick={next}>
-                        <NextBtnContent>&gt;</NextBtnContent>
-                    </NextBtn>
-                </ControlBar>
-            </AnimatePresence>
+                                <CardText>터치해서 가리기</CardText>
+                            </>
+                        ) : (
+                            <>
+                                <CardText>눌러서</CardText>
+                                <CardText>제시어</CardText>
+                                <CardText>확인하기</CardText>
+                            </>
+                        )}
+                    </Card>
+                </AnimatePresence>
+            </Cards>
+            <ControlBar>
+                <Dots>{visible + 1}</Dots>
+                <NextBtn onClick={next}>
+                    <NextBtnContent>&gt;</NextBtnContent>
+                </NextBtn>
+            </ControlBar>
         </RoleContainer>
     );
 }
