@@ -70,11 +70,20 @@ const ControlBar = styled.div`
 const Dots = styled.div`
     font-size: ${(props) => props.theme.fontSize.large};
     color: ${(props) => props.theme.blue};
-    padding-left: 10%;
-    width: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.25rem;
+    width: 50%;
 `;
 
-const Dot = styled.span``;
+const Dot = styled.span<{ visible: number; index: number }>`
+    width: 0.6rem;
+    height: 0.6rem;
+    border: 1px solid ${(props) => props.theme.blue};
+    border-radius: 50%;
+    background-color: ${(props) => (props.visible === props.index ? props.theme.blue : props.theme.white)};
+`;
 
 const NextBtn = styled.button`
     position: relative;
@@ -124,7 +133,7 @@ function Role() {
     const [check, setCheck] = useState(false);
     const [liar, setLiar] = useState(0);
     const players = useRecoilValue(peopleCountAtom);
-    // const cards = Array.from({ length: players }, (_, i) => i);
+    const dots = Array.from({ length: players }, (_, i) => i);
     const navigate = useNavigate();
     const next = () => {
         setCheck(false);
@@ -159,7 +168,11 @@ function Role() {
                 </AnimatePresence>
             </Cards>
             <ControlBar>
-                <Dots>{visible + 1}</Dots>
+                <Dots>
+                    {dots.map((value) => (
+                        <Dot visible={visible} index={value} key={value}></Dot>
+                    ))}
+                </Dots>
                 <NextBtn onClick={next}>
                     <NextBtnContent>&gt;</NextBtnContent>
                 </NextBtn>
